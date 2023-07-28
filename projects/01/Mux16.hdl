@@ -2,7 +2,7 @@
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
 // File name: projects/01/Mux16.hdl
-
+// O mux 16 recebe 32 entradas e 1 sel, e a partir deste seleciona as 16 saídas.
 /**
  * 16-bit multiplexor: 
  * for i = 0..15 out[i] = a[i] if sel == 0 

@@ -2,7 +2,7 @@
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
 // File name: projects/01/DMux.hdl
-
+// O Dmux tem 2 entradas, a primeira entrada é de bits, e a outra de sel (selecionador), e duas entradas possíveis de saída. A partir do valor do sel é decidido para qual das duas portas o input vai
 /**
  * Demultiplexor:
  * {a, b} = {in, 0} if sel == 0

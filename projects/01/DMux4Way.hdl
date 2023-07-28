@@ -2,7 +2,8 @@
 // and the book "The Elements of Computing Systems"
 // by Nisan and Schocken, MIT Press.
 // File name: projects/01/DMux4Way.hdl
-
+//  O Dmux4way quer ofertar 4 possíveis saídas para uma entrada.
+// Isso ocorre ao conectar a um primeiro Dmux que irá ofertar duas saídas, cada uma dessas saídas está ligada a outro Dmux, esses dois Dmux por sua vez compartilham do mesmo sel. Dessa forma, a partir dos valores de cada sel, a primeira entrada in sairá por uma das 4 possíveis portas ofertadas pelos segundos Dmux.
 /**
  * 4-way demultiplexor:
  * {a, b, c, d} = {in, 0, 0, 0} if sel == 00
