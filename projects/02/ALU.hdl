@@ -43,4 +43,37 @@ CHIP ALU {
 
     PARTS:
    // Put you code here:
+    // Zerar entradas
+   Mux16(a=x, b[0..15]=false, sel=zx, out=zxresult);
+   Mux16(a=y, b[0..15]=false, sel=zy, out=zyresult);
+
+    //  Negar entradas
+   Not16(in=zxresult, out=notx);
+   Mux16(a=zxresult, b=notx, sel=nx, out=nxresult);
+   Not16(in=zyresult, out=noty);
+   Mux16(a=zyresult, b=noty, sel=ny, out=nyresult);
+
+    // Escolhe entre a and e a soma 
+    And16(a=nxresult, b=nyresult, out=outand);
+    Add16(a=nxresult, b=nyresult, out=outsoma);
+    Mux16(a=outand, b=outsoma, sel=f, out=somand);
+
+
+    // Nega a saída
+    Not16(in=somand, out=notsomand);
+    // Escolhe entre a out e a notout
+    Mux16(a=somand, b=notsomand, sel=no, out=out, out[15]=ng, out[0..7]=zrbaixo, out[8..15]= zralto);
+    
+    // Tratamento da flag ZR
+    Or8Way(in=zrbaixo, out=zrb);
+    Or8Way(in=zralto, out=zra);
+    Or(a=zrb, b=zra, out=zrab);
+    Not(in=zrab, out=zr);
+
+
+
+
+
+
+
 }
