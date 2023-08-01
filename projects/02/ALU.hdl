@@ -44,18 +44,19 @@ CHIP ALU {
     PARTS:
    // Put you code here:
     // Zerar entradas
-   Mux16(a=x, b[0..15]=false, sel=zx, out=zxresult);
-   Mux16(a=y, b[0..15]=false, sel=zy, out=zyresult);
+   Mux16(a=x, b[0..15]=false, sel=zx, out=outzx);
+   Mux16(a=y, b[0..15]=false, sel=zy, out=outzy);
 
     //  Negar entradas
-   Not16(in=zxresult, out=notx);
-   Mux16(a=zxresult, b=notx, sel=nx, out=nxresult);
-   Not16(in=zyresult, out=noty);
-   Mux16(a=zyresult, b=noty, sel=ny, out=nyresult);
+   Not16(in=outzx, out=notx);
+   Mux16(a=outzx, b=notx, sel=nx, out=outnotx);
+
+   Not16(in=outzy, out=noty);
+   Mux16(a=outzy, b=noty, sel=ny, out=outnoty);
 
     // Escolhe entre a and e a soma 
-    And16(a=nxresult, b=nyresult, out=outand);
-    Add16(a=nxresult, b=nyresult, out=outsoma);
+    And16(a=outnotx, b=outnoty, out=outand);
+    Add16(a=outnotx, b=outnoty, out=outsoma);
     Mux16(a=outand, b=outsoma, sel=f, out=somand);
 
 
