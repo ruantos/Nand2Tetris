@@ -9,34 +9,3 @@
 // This program only needs to handle arguments that satisfy
 // R0 >= 0, R1 >= 0, and R0*R1 < 32768.
 
-
-@soma
-M=0
-@R1
-D=M
-@i
-M=D
-
-(LOOP)
-@i
-MD=M-1
-@FINALIZACAO
-D;JLT
-@R0
-D=M
-@soma
-M=D+M
-@LOOP
-0;JMP
-
-
-
-(FINALIZACAO)
-@soma
-D=M
-@R2
-M=D
-
-(FIM)
-@FIM
-0;JMP
