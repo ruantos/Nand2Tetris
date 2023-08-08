@@ -11,7 +11,6 @@
 
 @soma  //Cria variável soma e inicia ela em 0 
 M=0
-
 @R1             
 D=M             //Guarda o valor de R1 em um endereço temporário
 @controle        //Cria uma variável 'controle' que receberá o valor de R1.
@@ -22,15 +21,12 @@ M=D             // Será responsável pela quantidade de vezes que somaremos a v
 D=M
 @FIM
 D;JLE
-
 @R0             // A variável soma recebe o valor do registrador R0, mas o valor que já possuia. 
 D=M
 @soma
 M=M+D
-
 @controle           // Após fazer uma soma, decresce a variável controle
 M=M-1
-
 @CALCULO            //Volta para o começo da função
 0;JMP
 
