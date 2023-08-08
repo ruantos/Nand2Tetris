@@ -12,3 +12,64 @@
 // the screen should remain fully clear as long as no key is pressed.
 
 // Put your code here.
+
+
+(CONDICIONAL)
+    @KBD
+    D=M
+
+    @PRETO
+    D;JGT
+
+    @BRANCO
+    0;JMP
+
+(BRANCO)
+    @i
+    M=0
+    (LACOA)
+        @8192
+        D=A
+        @limite
+        M=D
+        @i
+        D=D-M
+        @CONDICIONAL
+        D;JEQ
+
+        @i
+        D=M
+        @SCREEN
+        A=A+D
+        M=0
+
+        @i
+        M=M+1
+        @LACOA
+        0;JMP        
+
+(PRETO)
+    @i
+    M=0
+    (LACOB)
+        @8192
+        D=A
+        @limite
+        M=D
+        @i
+        D=D-M
+        @CONDICIONAL
+        D;JEQ
+
+        @i
+        D=M
+        @SCREEN
+        A=A+D
+        M=-1
+
+        @i
+        M=M+1
+        @LACOB
+        0;JMP        
+
+
