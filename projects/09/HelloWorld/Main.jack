@@ -6,9 +6,8 @@
 /** Hello World program. */
 class Main {
    function void main() {
-      /* Prints some text using the standard library. */
-      do Output.printString("Hello world!");
-      do Output.println();      // New line
+      do Output.printString("Eu estou muito feliz de programar em Jack!");
+      do Outuput.printIn();
       return;
    }
 }
